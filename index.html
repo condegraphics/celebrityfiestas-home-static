@@ -24,13 +24,11 @@
   #celebrity-home a { color: var(--celebrity-white) !important; }
   #celebrity-home .celebrity-parallax {
     align-items: center;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     min-height: 800px;
     overflow: hidden;
     position: relative;
+    isolation: isolate;
   }
   #celebrity-home .celebrity-parallax::before {
     background: linear-gradient(90deg, rgba(0,0,0,.62), rgba(0,0,0,.08) 65%, rgba(0,0,0,.22));
@@ -38,27 +36,50 @@
     inset: 0;
     pointer-events: none;
     position: absolute;
+    z-index: 1;
+  }
+  #celebrity-home .celebrity-bg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    inset: -14% 0;
+    pointer-events: none;
+    position: absolute;
     z-index: 0;
   }
 
-  /* Parallax CSS sin JavaScript. !important evita que Bridge/WPBakery lo anule. */
-  #celebrity-home .celebrity-parallax {
-    background-attachment: fixed !important;
-  }
-
   #celebrity-home .celebrity-corporate {
-    background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2020/06/Empresa-Argentina-Productora-Eventos-2021.jpg');
     min-height: 100vh;
   }
-  #celebrity-home .celebrity-social {
-    background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2019/06/empresas-organizadoras-eventos-sociales1.jpg');
-  }
-  #celebrity-home .celebrity-special {
-    background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2019/06/productora-eventos-especiales-argentina-01.jpg');
-  }
   #celebrity-home .celebrity-shows {
-    background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2019/06/shows-para-eventos-fiestas-1.jpg');
     min-height: 900px;
+  }
+
+  #celebrity-home .celebrity-bg--corporate { background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2020/06/Empresa-Argentina-Productora-Eventos-2021.jpg'); }
+  #celebrity-home .celebrity-bg--social { background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2019/06/empresas-organizadoras-eventos-sociales1.jpg'); }
+  #celebrity-home .celebrity-bg--special { background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2019/06/productora-eventos-especiales-argentina-01.jpg'); }
+  #celebrity-home .celebrity-bg--shows { background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2019/06/shows-para-eventos-fiestas-1.jpg'); }
+
+  @keyframes celebrity-image-parallax {
+    from { transform: translate3d(0, -7%, 0) scale(1.16); }
+    to { transform: translate3d(0, 7%, 0) scale(1.16); }
+  }
+  @keyframes celebrity-text-reveal {
+    0% { opacity: 0; transform: translate3d(0, 70px, 0); }
+    18%, 78% { opacity: 1; transform: translate3d(0, 0, 0); }
+    100% { opacity: .2; transform: translate3d(0, -40px, 0); }
+  }
+  @supports (animation-timeline: view()) {
+    #celebrity-home .celebrity-bg {
+      animation: celebrity-image-parallax linear both;
+      animation-range: entry 0% exit 100%;
+      animation-timeline: view();
+    }
+    #celebrity-home .celebrity-content {
+      animation: celebrity-text-reveal linear both;
+      animation-range: entry 0% exit 100%;
+      animation-timeline: view();
+    }
   }
 
   #celebrity-home .celebrity-content {
@@ -117,8 +138,8 @@
     #celebrity-home .celebrity-parallax,
     #celebrity-home .celebrity-corporate,
     #celebrity-home .celebrity-shows { min-height: 680px; }
-    #celebrity-home .celebrity-special,
-    #celebrity-home .celebrity-shows { background-position: 62% center; }
+    #celebrity-home .celebrity-bg--special,
+    #celebrity-home .celebrity-bg--shows { background-position: 62% center; }
     #celebrity-home .celebrity-parallax::before { background: rgba(0,0,0,.48); }
     #celebrity-home .celebrity-content,
     #celebrity-home .celebrity-content--right {
@@ -132,12 +153,14 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    #celebrity-home .celebrity-parallax { background-attachment: scroll !important; }
+    #celebrity-home .celebrity-bg,
+    #celebrity-home .celebrity-content { animation: none !important; }
   }
 </style>
 
 <main id="celebrity-home">
   <section class="celebrity-parallax celebrity-corporate" id="celebrity-corporativos" aria-labelledby="celebrity-title-corporate">
+    <div class="celebrity-bg celebrity-bg--corporate" aria-hidden="true"></div>
     <div class="celebrity-content">
       <p class="celebrity-eyebrow">Creadores de experiencias</p>
       <h1 id="celebrity-title-corporate">EVENTOS<br> CORPORATIVOS</h1>
@@ -147,6 +170,7 @@
   </section>
 
   <section class="celebrity-parallax celebrity-social" id="celebrity-sociales" aria-labelledby="celebrity-title-social">
+    <div class="celebrity-bg celebrity-bg--social" aria-hidden="true"></div>
     <div class="celebrity-content celebrity-content--right">
       <p class="celebrity-kicker">Event Planner | Wedding Planner</p>
       <h2 id="celebrity-title-social">FIESTAS<br> SOCIALES</h2>
@@ -156,6 +180,7 @@
   </section>
 
   <section class="celebrity-parallax celebrity-special" id="celebrity-producciones" aria-labelledby="celebrity-title-special">
+    <div class="celebrity-bg celebrity-bg--special" aria-hidden="true"></div>
     <div class="celebrity-content">
       <p class="celebrity-kicker">Escenarios Naturales</p>
       <h2 id="celebrity-title-special">PRODUCCIONES<br> ESPECIALES</h2>
@@ -165,6 +190,7 @@
   </section>
 
   <section class="celebrity-parallax celebrity-shows" id="celebrity-shows" aria-labelledby="celebrity-title-shows">
+    <div class="celebrity-bg celebrity-bg--shows" aria-hidden="true"></div>
     <div class="celebrity-content celebrity-content--right">
       <p class="celebrity-kicker">Artistas &amp; Musicales</p>
       <h2 id="celebrity-title-shows">SHOWS<br> EXCLUSIVOS</h2>

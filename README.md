@@ -4,9 +4,9 @@ Fragmento listo para pegar dentro de un módulo **HTML Puro** de WPBakery. El ar
 
 El CSS está incluido dentro de una etiqueta `<style>` en el mismo archivo. No hace falta agregar una hoja de estilos externa.
 
-## Parallax
+## Parallax y animaciones
 
-En escritorio se fuerza `background-attachment: fixed !important` dentro de una media query para dispositivos con mouse/puntero preciso. En móviles se mantiene `background-attachment: scroll`, que es el comportamiento más compatible y el que ya funciona correctamente en la web.
+Las imágenes ahora están separadas en capas `.celebrity-bg` y se animan con `animation-timeline: view()` y `animation-range`, la API CSS moderna de **Scroll-Driven Animations**. Los textos tienen una animación independiente de entrada, desplazamiento y opacidad. No se utiliza JavaScript. En navegadores que todavía no soportan `animation-timeline`, las imágenes y textos conservan una presentación estática legible como fallback.
 
 ## Tipografías
 
