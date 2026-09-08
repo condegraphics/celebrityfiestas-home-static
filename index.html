@@ -1,68 +1,174 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Celebrity Fiestas: eventos corporativos, fiestas sociales, producciones especiales y shows exclusivos.">
-  <title>Celebrity Fiestas | Organización de eventos</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;900&family=Lato:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="Celebrity Fiestas, inicio">CELEBRITY<span>FIESTAS</span></a>
-    <nav aria-label="Navegación principal">
-      <a href="#corporativos">Corporativos</a>
-      <a href="#sociales">Sociales</a>
-      <a href="#producciones">Producciones</a>
-      <a href="#shows">Shows</a>
-    </nav>
-  </header>
+<!-- Fragmento para pegar dentro de un módulo HTML nativo de WPBakery. No incluye <html>, <head>, header ni footer. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700;900&family=Lato:wght@400;500;700;900&display=swap');
 
-  <main id="inicio">
-    <section class="hero parallax parallax--corporate" id="corporativos" aria-labelledby="title-corporate">
-      <div class="hero__content hero__content--left">
-        <p class="eyebrow">Creadores de experiencias</p>
-        <h1 id="title-corporate">EVENTOS<br> CORPORATIVOS</h1>
-        <p class="lead">Desde 1995 en el mercado. Celebrity cuenta con la experiencia, infraestructura y tecnología para crear los más increíbles eventos corporativos.</p>
-        <a class="button" href="https://www.celebrityfiestas.com.ar/eventos-corporativos/">Ver más</a>
-      </div>
-    </section>
+  #celebrity-home {
+    --celebrity-white: #fff;
+    --celebrity-ink: #17171c;
+    --celebrity-accent: #a9c95a;
+    background: var(--celebrity-ink);
+    color: var(--celebrity-white);
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    line-height: 1.72;
+    margin: 0;
+    width: 100%;
+  }
 
-    <section class="panel parallax parallax--social" id="sociales" aria-labelledby="title-social">
-      <div class="panel__content panel__content--right">
-        <p class="kicker">Event Planner | Wedding Planner</p>
-        <h2 id="title-social">FIESTAS<br> SOCIALES</h2>
-        <p>Más de 20 años de experiencia en <strong>eventos sociales</strong>, fiestas aniversarios, casamientos y 15 años nos convierte en una de las mejores empresas de organización de eventos en Argentina.</p>
-        <a class="button" href="https://www.celebrityfiestas.com.ar/fiestas-sociales/">Ver más</a>
-      </div>
-    </section>
+  #celebrity-home,
+  #celebrity-home * { box-sizing: border-box; }
+  #celebrity-home a { color: inherit; }
+  #celebrity-home .celebrity-parallax {
+    align-items: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    min-height: 800px;
+    overflow: hidden;
+    position: relative;
+  }
+  #celebrity-home .celebrity-parallax::before {
+    background: linear-gradient(90deg, rgba(0,0,0,.62), rgba(0,0,0,.08) 65%, rgba(0,0,0,.22));
+    content: '';
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+  }
 
-    <section class="panel parallax parallax--special" id="producciones" aria-labelledby="title-special">
-      <div class="panel__content panel__content--left">
-        <p class="kicker">Escenarios Naturales</p>
-        <h2 id="title-special">PRODUCCIONES<br> ESPECIALES</h2>
-        <p>¿Te imaginás realizar la producción de fotos y video de tu fiesta en Miami, New York, Disney, Ibiza o el lugar que soñás? <strong>Celebrity</strong> te lleva a cualquier lugar del mundo. ¡Hacelo realidad con nosotros!</p>
-        <a class="button" href="https://www.celebrityfiestas.com.ar/producciones-especiales/">Ver más</a>
-      </div>
-    </section>
+  /* Parallax real en escritorio: fixed debe llevar !important para ganar a estilos del theme. */
+  @media (hover: hover) and (pointer: fine) and (min-width: 761px) {
+    #celebrity-home .celebrity-parallax {
+      background-attachment: fixed !important;
+    }
+  }
 
-    <section class="panel parallax parallax--shows" id="shows" aria-labelledby="title-shows">
-      <div class="panel__content panel__content--right">
-        <p class="kicker">Artistas &amp; Musicales</p>
-        <h2 id="title-shows">SHOWS<br> EXCLUSIVOS</h2>
-        <p>Shows para fiestas. Contratación de artistas exclusivos para eventos sociales y empresariales: humoristas, famosos, grupos musicales y animaciones.</p>
-        <a class="button" href="https://www.celebrityfiestas.com.ar/shows/">Ver más</a>
-      </div>
-    </section>
-  </main>
+  #celebrity-home .celebrity-corporate {
+    background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2020/06/Empresa-Argentina-Productora-Eventos-2021.jpg');
+    min-height: 100vh;
+  }
+  #celebrity-home .celebrity-social {
+    background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2019/06/empresas-organizadoras-eventos-sociales1.jpg');
+  }
+  #celebrity-home .celebrity-special {
+    background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2019/06/productora-eventos-especiales-argentina-01.jpg');
+  }
+  #celebrity-home .celebrity-shows {
+    background-image: url('https://www.celebrityfiestas.com.ar/wp-content/uploads/2019/06/shows-para-eventos-fiestas-1.jpg');
+    min-height: 900px;
+  }
 
-  <footer class="site-footer">
-    <p>Organizador de eventos</p>
-    <p><a href="tel:+5491154009203">+54 9 11 5400-9203</a> <span aria-hidden="true">|</span> <a href="tel:+5491144186642">+54 9 11 4418-6642</a></p>
-    <p><a href="mailto:ofpilar@celebrityfiestas.com.ar">ofpilar@celebrityfiestas.com.ar</a></p>
-  </footer>
-</body>
-</html>
+  #celebrity-home .celebrity-content {
+    max-width: min(620px, 90vw);
+    margin: 100px max(7vw, 24px) 0;
+    position: relative;
+    z-index: 1;
+  }
+  #celebrity-home .celebrity-content--right {
+    margin-left: auto;
+    margin-right: max(7vw, 24px);
+    text-align: right;
+  }
+  #celebrity-home .celebrity-eyebrow,
+  #celebrity-home .celebrity-kicker {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 6px;
+  }
+  #celebrity-home .celebrity-kicker { font-size: 20px; line-height: 2; }
+  #celebrity-home h1,
+  #celebrity-home h2 {
+    color: var(--celebrity-white);
+    font-family: 'Dosis', sans-serif;
+    font-size: clamp(3.2rem, 6.2vw, 4.375rem);
+    font-weight: 900;
+    letter-spacing: .015em;
+    line-height: 1.1;
+    margin: 0 0 24px;
+  }
+  #celebrity-home p:not(.celebrity-eyebrow):not(.celebrity-kicker) {
+    margin: 0 0 28px;
+    max-width: 600px;
+  }
+  #celebrity-home .celebrity-content--right p:not(.celebrity-eyebrow):not(.celebrity-kicker) { margin-left: auto; }
+  #celebrity-home .celebrity-button {
+    border: 1px solid rgba(255,255,255,.9);
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    padding: 10px 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background .2s ease, color .2s ease;
+  }
+  #celebrity-home .celebrity-button:hover,
+  #celebrity-home .celebrity-button:focus-visible {
+    background: var(--celebrity-white);
+    color: var(--celebrity-ink);
+  }
+
+  @media (max-width: 760px) {
+    #celebrity-home { font-size: 16px; line-height: 1.6; }
+    #celebrity-home .celebrity-parallax,
+    #celebrity-home .celebrity-corporate,
+    #celebrity-home .celebrity-shows { min-height: 680px; }
+    #celebrity-home .celebrity-parallax { background-attachment: scroll !important; }
+    #celebrity-home .celebrity-special,
+    #celebrity-home .celebrity-shows { background-position: 62% center; }
+    #celebrity-home .celebrity-parallax::before { background: rgba(0,0,0,.48); }
+    #celebrity-home .celebrity-content,
+    #celebrity-home .celebrity-content--right {
+      margin: 90px 24px 0;
+      text-align: left;
+    }
+    #celebrity-home .celebrity-eyebrow { font-size: 20px; }
+    #celebrity-home .celebrity-kicker { font-size: 18px; }
+    #celebrity-home h1,
+    #celebrity-home h2 { font-size: clamp(2.7rem, 13vw, 4rem); margin-bottom: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #celebrity-home .celebrity-parallax { background-attachment: scroll !important; }
+  }
+</style>
+
+<main id="celebrity-home">
+  <section class="celebrity-parallax celebrity-corporate" id="celebrity-corporativos" aria-labelledby="celebrity-title-corporate">
+    <div class="celebrity-content">
+      <p class="celebrity-eyebrow">Creadores de experiencias</p>
+      <h1 id="celebrity-title-corporate">EVENTOS<br> CORPORATIVOS</h1>
+      <p>Desde 1995 en el mercado. Celebrity cuenta con la experiencia, infraestructura y tecnología para crear los más increíbles eventos corporativos.</p>
+      <a class="celebrity-button" href="https://www.celebrityfiestas.com.ar/eventos-corporativos/">Ver más</a>
+    </div>
+  </section>
+
+  <section class="celebrity-parallax celebrity-social" id="celebrity-sociales" aria-labelledby="celebrity-title-social">
+    <div class="celebrity-content celebrity-content--right">
+      <p class="celebrity-kicker">Event Planner | Wedding Planner</p>
+      <h2 id="celebrity-title-social">FIESTAS<br> SOCIALES</h2>
+      <p>Más de 20 años de experiencia en <strong>eventos sociales</strong>, fiestas aniversarios, casamientos y 15 años nos convierte en una de las mejores empresas de organización de eventos en Argentina.</p>
+      <a class="celebrity-button" href="https://www.celebrityfiestas.com.ar/fiestas-sociales/">Ver más</a>
+    </div>
+  </section>
+
+  <section class="celebrity-parallax celebrity-special" id="celebrity-producciones" aria-labelledby="celebrity-title-special">
+    <div class="celebrity-content">
+      <p class="celebrity-kicker">Escenarios Naturales</p>
+      <h2 id="celebrity-title-special">PRODUCCIONES<br> ESPECIALES</h2>
+      <p>¿Te imaginás realizar la producción de fotos y video de tu fiesta en Miami, New York, Disney, Ibiza o el lugar que soñás? <strong>Celebrity</strong> te lleva a cualquier lugar del mundo. ¡Hacelo realidad con nosotros!</p>
+      <a class="celebrity-button" href="https://www.celebrityfiestas.com.ar/producciones-especiales/">Ver más</a>
+    </div>
+  </section>
+
+  <section class="celebrity-parallax celebrity-shows" id="celebrity-shows" aria-labelledby="celebrity-title-shows">
+    <div class="celebrity-content celebrity-content--right">
+      <p class="celebrity-kicker">Artistas &amp; Musicales</p>
+      <h2 id="celebrity-title-shows">SHOWS<br> EXCLUSIVOS</h2>
+      <p>Shows para fiestas. Contratación de artistas exclusivos para eventos sociales y empresariales: humoristas, famosos, grupos musicales y animaciones.</p>
+      <a class="celebrity-button" href="https://www.celebrityfiestas.com.ar/shows/">Ver más</a>
+    </div>
+  </section>
+</main>

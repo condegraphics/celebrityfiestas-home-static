@@ -1,15 +1,13 @@
-# Celebrity Fiestas — Home estática
+# Celebrity Fiestas — fragmento HTML para WPBakery
 
-Réplica estática, semántica y responsive de las cuatro secciones principales de la HOME de Celebrity Fiestas. Está construida únicamente con HTML y CSS, sin JavaScript.
+Fragmento listo para pegar dentro de un módulo **HTML Puro** de WPBakery. El archivo `index.html` contiene únicamente el contenido que debe insertarse dentro del body: no incluye `html`, `head`, header ni footer.
 
-## Tipografías detectadas
+El CSS está incluido dentro de una etiqueta `<style>` en el mismo archivo. No hace falta agregar una hoja de estilos externa.
 
-- **Dosis 900** para títulos principales.
-- **Lato 700** para subtítulos y etiquetas.
-- **Lato 500** para textos descriptivos.
+## Parallax
 
-## Visualización local
+En escritorio se fuerza `background-attachment: fixed !important` dentro de una media query para dispositivos con mouse/puntero preciso. En móviles se mantiene `background-attachment: scroll`, que es el comportamiento más compatible y el que ya funciona correctamente en la web.
 
-Abrir `index.html` directamente en el navegador o ejecutar un servidor local desde esta carpeta.
+## Tipografías
 
-Las imágenes fueron descargadas desde las URLs públicas indicadas por el cliente y se conservan en `images/` para que la réplica funcione sin depender de WordPress.
+Se cargan mediante `@import` dentro del CSS inline: **Dosis 900** para títulos y **Lato** para subtítulos y textos.
