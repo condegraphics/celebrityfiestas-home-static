@@ -17,7 +17,11 @@
 
   #celebrity-home,
   #celebrity-home * { box-sizing: border-box; }
-  #celebrity-home a { color: inherit; }
+  #celebrity-home p,
+  #celebrity-home h1,
+  #celebrity-home h2,
+  #celebrity-home strong,
+  #celebrity-home a { color: var(--celebrity-white) !important; }
   #celebrity-home .celebrity-parallax {
     align-items: center;
     background-position: center center;
@@ -37,11 +41,9 @@
     z-index: 0;
   }
 
-  /* Parallax real en escritorio: fixed debe llevar !important para ganar a estilos del theme. */
-  @media (hover: hover) and (pointer: fine) and (min-width: 761px) {
-    #celebrity-home .celebrity-parallax {
-      background-attachment: fixed !important;
-    }
+  /* Parallax CSS sin JavaScript. !important evita que Bridge/WPBakery lo anule. */
+  #celebrity-home .celebrity-parallax {
+    background-attachment: fixed !important;
   }
 
   #celebrity-home .celebrity-corporate {
@@ -115,7 +117,6 @@
     #celebrity-home .celebrity-parallax,
     #celebrity-home .celebrity-corporate,
     #celebrity-home .celebrity-shows { min-height: 680px; }
-    #celebrity-home .celebrity-parallax { background-attachment: scroll !important; }
     #celebrity-home .celebrity-special,
     #celebrity-home .celebrity-shows { background-position: 62% center; }
     #celebrity-home .celebrity-parallax::before { background: rgba(0,0,0,.48); }
